@@ -1,5 +1,5 @@
 <script>
-import Component1 from './components/Component1.vue'
+import HeaderComponent from './components/HeaderComponent.vue'
 
 export default {
   data() {
@@ -7,7 +7,7 @@ export default {
     }
   },
   components:{
-    Component1
+    HeaderComponent
   }
 }
 
@@ -16,58 +16,7 @@ export default {
 <template>
 
   <header>
-    <div class="container">
-      <nav>
-
-        <div class="header-logo">
-          <img src="./assets/img/dc-logo.png" alt="dc-logo">
-        </div>
-        <ul>
-
-          <li>
-            <a href=""> characters</a>
-          </li>
-
-          <li>
-            <a href=""> comics</a>
-          </li>
-
-          <li>
-            <a href=""> movies</a>
-          </li>
-
-          <li>
-            <a href=""> tv</a>
-          </li>
-
-          <li>
-            <a href=""> games</a>
-          </li>
-
-          <li>
-            <a href=""> collectibles</a>
-          </li>
-
-          <li>
-            <a href=""> videos</a>
-          </li>
-
-          <li>
-            <a href=""> fans</a>
-          </li>
-
-          <li>
-            <a href=""> news</a>
-          </li>
-
-          <li>
-            <a href=""> shop</a>
-          </li>
-
-
-        </ul>
-      </nav>
-    </div>
+   <HeaderComponent></HeaderComponent>
   </header>
 
   <main>
@@ -97,53 +46,6 @@ export default {
 <style lang="scss" scoped>
 @use './assets/scss/main.scss';
 
-.container{
-  width: 1140px;
-  margin: 0 auto;
-}
-
-header{
-  width: 100%;
-  margin: 20px 0;
-    nav{
-      display: flex;
-      justify-content: space-between;
-      
-      ul{
-        display: flex;
-        align-items: center;
-        text-transform: uppercase;
-        margin: 0;
-
-        li{
-          margin: 0 5px;
-          height: 100%;
-          display: flex;
-          align-items: center;
-          padding: 0 10px;
-          
-          &:hover{
-            border-bottom: 5px solid #2087EE;
-          }
-
-          &:hover a{
-            color: #2087EE;
-          }
-
-          a{
-            text-decoration: none;
-            color: darkslategray;
-            font-weight: 700;
-            font-size: 12px;
-          }
-        }
-      }
-    }
-    .header-logo{
-      margin: 10px;
-      scale: 80%;
-    }
-}
 
 main{
   background-color: #1C1C1C;
