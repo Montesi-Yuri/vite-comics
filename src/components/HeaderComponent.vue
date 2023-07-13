@@ -65,6 +65,7 @@ header{
           
           &:hover{
             border-bottom: 5px solid #2087EE;
+            cursor: pointer;
           }
 
           &:hover a{
