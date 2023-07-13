@@ -1,2 +1,5 @@
-@use './SingleStylingFiles/mixins' as *;
+@use 'SingleStylingFiles/mixins' as *;
 
+html body{
+    @include reset;
+}
