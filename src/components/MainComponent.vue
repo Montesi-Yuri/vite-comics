@@ -1,4 +1,5 @@
 <script>
+import ComicComponent from './ComicComponent.vue';
 
 export default {
   data() {
@@ -79,6 +80,9 @@ export default {
         ]
     }
   },
+  components:{
+    ComicComponent
+  }
   
 }
 
@@ -93,14 +97,13 @@ export default {
             <div class="section-title">
                 <h2>CURRENT SERIES</h2>
             </div>
-
             <div class="single-series" v-for="(singleSeries, i) in series" :key="i">
-                <div>
-                    <img :src="singleSeries.thumb" :alt="singleSeries.series">
-                </div>
-                <h3>{{ singleSeries.series }}</h3>
+                <ComicComponent
+                :name="singleSeries.series"
+                :src="singleSeries.thumb">
+
+                </ComicComponent>
             </div>
-            
         </section>
         <div>
             <button class="btn-load-more">LOAD MORE</button>
@@ -161,35 +164,4 @@ export default {
     flex-wrap: wrap;
     padding-top: 50px;
 }
-
-
-.single-series {
-    margin: 10px;
-    width: 180px;
-    cursor: pointer;
-
-    &:hover{
-        opacity: 0.3;
-    }
-
-    > div{
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        img{
-        width: 150px;
-        height: 200px;
-        object-fit: cover;
-        }
-    }
-    
-    h3{
-        color: white;
-        font-weight: 500;
-        text-align: center;
-        word-break: break-word;
-    }
-}
-
 </style>

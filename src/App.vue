@@ -35,16 +35,25 @@ export default {
 @use './assets/scss/main.scss' as *;
 
 *{
-  font-family: 'Roboto', sans-serif;
+  	font-family: 'Roboto', sans-serif;
 }
 .container{
-  width: 1140px;
-  margin: 0 auto;
+	width: 1140px;
+	margin: 0 auto;
 }
 
 main{
-  background-color: #1C1C1C;
-  width: 100%;
-  padding-bottom: 50px;
+	background-color: #1C1C1C;
+	width: 100%;
+	padding-bottom: 50px;
+}
+.single-series {
+	margin: 10px;
+	width: 180px;
+	cursor: pointer;
+
+    &:hover{
+      opacity: 0.3;
+    }
 }
 </style>
