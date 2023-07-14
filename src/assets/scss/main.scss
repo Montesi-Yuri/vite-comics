@@ -1,4 +1,5 @@
 @use 'SingleStylingFiles/mixins' as *;
+@use 'SingleStylingFiles/variables' as *;
 
 html body{
     @include reset;

@@ -1,6 +1,7 @@
 <script>
 import HeaderComponent from './components/HeaderComponent.vue';
-import FooterComponent from './components/FooterComponent.vue'
+import FooterComponent from './components/FooterComponent.vue';
+import MainComponent from './components/MainComponent.vue';
 
 export default {
   data() {
@@ -9,32 +10,25 @@ export default {
   },
   components:{
     HeaderComponent,
+    MainComponent,
     FooterComponent,
 
   }
 }
-
 </script>
 
 <template>
-
   <header>
    <HeaderComponent></HeaderComponent>
-   
   </header>
 
   <main>
-    <div class="container">
-      <h3>Missing main content</h3>
-    </div>
+    <MainComponent></MainComponent>
   </main>
 
   <footer>
-    
     <FooterComponent></FooterComponent>
-    
   </footer>
-
 </template>
 
 <style lang="scss" >
@@ -51,15 +45,6 @@ export default {
 main{
   background-color: #1C1C1C;
   width: 100%;
-  border: 1px solid black;
-
-  h3{
-    color: white;
-    font-size: 48px;
-    text-align: center;
-  }
+  padding-bottom: 50px;
 }
-
-
-
 </style>

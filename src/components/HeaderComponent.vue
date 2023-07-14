@@ -22,6 +22,7 @@ export default {
 
 </script>
 
+
 <template>
    <div class="container">
       <nav>
@@ -38,6 +39,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
+@use 'src/assets/scss/SingleStylingFiles/variables' as *;
 .container{
   width: 1140px;
   margin: 0 auto;
@@ -64,12 +66,19 @@ header{
           padding: 0 10px;
           
           &:hover{
-            border-bottom: 5px solid #2087EE;
+            border-bottom: 5px solid $primary-blue;
             cursor: pointer;
+          }
+          &.active{
+			border-bottom: 5px solid $primary-blue;
+			cursor: pointer;
+			a{
+				color: $primary-blue;
+			}
           }
 
           &:hover a{
-            color: #2087EE;
+			color: $primary-blue;
           }
 
           a{

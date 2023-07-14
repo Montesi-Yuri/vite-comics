@@ -1,0 +1,195 @@
+<script>
+
+export default {
+  data() {
+    return {
+        series:[
+            {
+                "thumb": "https://www.coverbrowser.com/image/action-comics/1-1.jpg",
+                "price": "$19.99",
+                "series": "Action Comics",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://www.panini.it/media/catalog/product/cache/a5b5dd3adfe0d321084804c738f29601/M/1/M1BLLA015ISBN_0.jpg",
+                "price": "$3.99",
+                "series": "American Vampire 1976",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://media.wired.com/photos/593384dad80dd005b42b2817/master/w_2560%2Cc_limit/Aquaman-16.jpg",
+                "price": "$16.99",
+                "series": "Aquaman",
+                "type": "graphic novel",
+            },
+            {
+                "thumb": "https://d29xot63vimef3.cloudfront.net/image/batgirl/1-1.jpg",
+                "price": "$2.99",
+                "series": "Batgirl",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.posters.cz/image/750/locandine-film-in-plexiglass-batman-prowl-comic-cover-i69653.jpg",
+                "price": "$3.99",
+                "series": "Batman",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/5/50/Batman_Beyond_v.1_1.jpg",
+                "price": "$2.99",
+                "series": "Batman Beyond",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/0/0d/Batman_Superman_Vol_1_1.jpg",
+                "price": "$3.99",
+                "series": "Batman/Superman",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/c/cf/Batman_Superman_Annual_Vol_2_1.jpg",
+                "price": "$4.99",
+                "series": "Batman/Superman Annual",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/5/54/Batman_The_Joker_War_Zone_Vol_1_1.jpg",
+                "price": "$5.99",
+                "series": "Batman: The Joker War Zone",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/6/64/Batman_Three_Jokers_Collected.jpg",
+                "price": "$6.99",
+                "series": "Batman: Three Jokers",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/f/f8/Batman_White_Knight_Presents_Harley_Quinn_Vol_1_1.jpg",
+                "price": "$4.99",
+                "series": "Batman: White Knight Presents: Harley Quinn",
+                "type": "comic book",
+            },
+            {
+                "thumb": "https://static.wikia.nocookie.net/marvel_dc/images/c/c8/Catwoman_Vol_2_1.jpg",
+                "price": "$16.99",
+                "series": "Catwoman",
+                "type": "graphic novel",
+            },
+        ]
+    }
+  },
+  
+}
+
+</script>
+
+<template>
+    <section class="hero-section">
+    </section>
+
+    <div class="container">
+        <section class="current-series">
+            <div class="section-title">
+                <h2>CURRENT SERIES</h2>
+            </div>
+
+            <div class="single-series" v-for="(singleSeries, i) in series" :key="i">
+                <div>
+                    <img :src="singleSeries.thumb" :alt="singleSeries.series">
+                </div>
+                <h3>{{ singleSeries.series }}</h3>
+            </div>
+            
+        </section>
+        <div>
+            <button class="btn-load-more">LOAD MORE</button>
+        </div>
+    </div>
+   
+   
+</template>
+
+<style lang="scss" scoped>
+@use 'src/assets/scss/SingleStylingFiles/variables' as *;
+
+.container{
+    width: 1200px;
+    margin: 0 auto;
+    > div{
+        display: flex;
+        justify-content: center;
+        margin: 10px 0;
+
+        .btn-load-more{
+            background-color: $primary-blue;
+            padding: 10px 35px;
+            cursor: pointer;
+            color: white;
+            border: 0;
+
+            &:hover{
+                border: 1px solid white;
+            }
+        }
+    }
+}
+
+.hero-section{
+    background-image: url('../assets/img/jumbotron.jpg');
+    height: 400px;
+}
+.section-title{
+    background-color: $primary-blue;
+    display: inline-block;
+    padding: 15px 15px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(0, -50%);
+
+    h2{
+        color: white;
+        font-size: 28px;
+        margin: 0;
+    }
+}
+
+.current-series{
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    padding-top: 50px;
+}
+
+
+.single-series {
+    margin: 10px;
+    width: 180px;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 0.3;
+    }
+
+    > div{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        img{
+        width: 150px;
+        height: 200px;
+        object-fit: cover;
+        }
+    }
+    
+    h3{
+        color: white;
+        font-weight: 500;
+        text-align: center;
+        word-break: break-word;
+    }
+}
+
+</style>
