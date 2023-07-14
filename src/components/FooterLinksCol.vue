@@ -38,6 +38,10 @@ a{
     text-decoration: none;
     font-size: 12px;
     font-weight: 600;
+
+    &:hover{
+        color: white;
+    }
 }
 
 </style>

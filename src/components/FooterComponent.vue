@@ -4,6 +4,7 @@ import FooterLinksCol from './FooterLinksCol.vue';
 export default {
   data() {
     return {
+        shopLocatorClass:'',
         footerItems:[
             {
                 name: 'digital comics',
@@ -104,10 +105,8 @@ export default {
     methods:{
         getImgPath: function(src) {
           return new URL(`${src}`, import.meta.url).href
-        }
+        },
     },
-    
-  
 }
 
 </script>
@@ -117,7 +116,7 @@ export default {
       <div class="container">
             <div class="items-row">
 
-                <div class="single-item" v-for="singleItem in footerItems" :key="singleItem">
+                <div class="single-item" v-for="singleItem in footerItems" :key="singleItem" :class="singleItem.name == 'comic shop locator' ? 'shop-locator' : ''">
                     <img :src="getImgPath(singleItem.src)" alt="">
                     <h3>{{ singleItem.name }}</h3>
                 </div>
@@ -191,32 +190,38 @@ footer{
     
         &.footer-items{
             background-color: #2087EE;
+            padding: 20px 0;
 
             .items-row{
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
+                display: flex;
+                justify-content: space-between;
             }
 
             h3{
-            display: inline-block;
-            text-transform: uppercase;
-            color: white;
-            font-weight: 500;
-            font-size: 13px;
+                display: inline-block;
+                text-transform: uppercase;
+                color: white;
+                font-weight: 500;
+                font-size: 13px;
+                padding-right: 5px;
             }
             .single-item{
-            display: flex;
-            align-items: center;
-			cursor: pointer;
-			padding: 0 20px;
+                display: flex;
+                align-items: center;
+                cursor: pointer;
+                border-radius: 5px;
+
+                &.shop-locator img{
+                    height: 50px;
+                    width: auto;
+                }
 
 			&:hover{
 				background-color: rgba($color: #000000, $alpha: 0.3);
 			}
               img{
-                  width: 50px;
-				  scale: 70%;
+                width: 50px;
+                padding: 10px;
               }
             }
         }
@@ -289,6 +294,11 @@ footer{
 				.social-icon{
 					margin: 0 10px;
 					cursor: pointer;
+
+                    img:hover{
+                        background-color: white;
+                        border-radius: 50%;
+                    }
 				}
             }
         }
