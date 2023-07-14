@@ -1,115 +1,157 @@
 <script>
+import FooterLinksCol from './FooterLinksCol.vue';
 
 export default {
   data() {
     return {
+        footerItems:[
+            {
+                name: 'digital comics',
+                src:'../assets/img/buy-comics-digital-comics.png'
+            },
+            {
+                name: 'dc merchandise',
+                src:'../assets/img/buy-comics-merchandise.png'
+            },
+            {
+                name: 'subscriptions',
+                src:'../assets/img/buy-comics-subscriptions.png'
+            },
+            {
+                name: 'comic shop locator',
+                src:'../assets/img/buy-comics-shop-locator.png'
+            },
+            {
+                name: 'dc power visa',
+                src:'../assets/img/buy-dc-power-visa.svg'
+            }
+        ],
+		footerSocialIcons:[
+			{
+                name: 'facebook',
+                src:'../assets/img/footer-facebook.png'
+            },
+			{
+                name: 'twitter',
+                src:'../assets/img/footer-twitter.png'
+            },
+			{
+                name: 'youtube',
+                src:'../assets/img/footer-youtube.png'
+            },
+			{
+                name: 'pinterest',
+                src:'../assets/img/footer-pinterest.png'
+            },
+			{
+                name: 'periscope',
+                src:'../assets/img/footer-periscope.png'
+            },
+		],
+		footerInfo:[
+			{
+				title: 'DC COMICS',
+				links:[
+					'Characters',
+					'Comics',
+					'Movies',
+					'Tv',
+					'Games',
+					'Videos',
+					'News'
+				]
+			},
+			{
+				title: 'SHOP',
+				links:{
+					shopdc: 'Shop DC',
+					shopDcColl: 'Shop DC Collectibles'
+				}
+			},
+			{
+				title: 'DC',
+				links:{
+					terms: 'Terms Of Use',
+					privacy: 'Privacy Policy (New)',
+					adChoices: 'Ad Choices',
+					advertising: 'Advertising',
+					jobs: 'Jobs',
+					subscriptions: 'Subscriptions',
+					talent: 'Talent Workshops',
+					certificates: 'CPSC certificates',
+					ratings: 'Ratings',
+					shop: 'Shop Help',
+					contactUs: 'Contact Us'
+				}
+			},
+			{
+				title: 'SITES',
+				links:{
+					dc: 'DC',
+					madMagazine: 'Mad Magazine',
+					dcKids: 'DC Kids',
+					dcUniverse: 'DC Universe',
+					dcVisa: 'DC Power Visa'
+				}
+			},
+		]
       
-    }
-  },
+    };
+    },
+	components:{
+		FooterLinksCol
+	},
+    methods:{
+        getImgPath: function(src) {
+          return new URL(`${src}`, import.meta.url).href
+        }
+    },
+    
   
 }
 
 </script>
 
 <template>
-    <section class="footer-links">
+    <section class="footer-items">
       <div class="container">
-        <div class="link-elements">
+            <div class="items-row">
 
-          <div class="single-link-element">
-            <img src="../assets/img/buy-comics-digital-comics.png" alt="">
-            <h3>digital comics</h3>
-          </div>
+                <div class="single-item" v-for="singleItem in footerItems" :key="singleItem">
+                    <img :src="getImgPath(singleItem.src)" alt="">
+                    <h3>{{ singleItem.name }}</h3>
+                </div>
 
-          <div class="single-link-element">
-            <img src="../assets/img/buy-comics-digital-comics.png" alt="">
-            <h3>digital comics</h3>
-          </div>
-
-          <div class="single-link-element">
-            <img src="../assets/img/buy-comics-digital-comics.png" alt="">
-            <h3>digital comics</h3>
-          </div>
-
-          <div class="single-link-element">
-            <img src="../assets/img/buy-comics-digital-comics.png" alt="">
-            <h3>digital comics</h3>
-          </div>
-
-          <div class="single-link-element">
-            <img src="../assets/img/buy-comics-digital-comics.png" alt="">
-            <h3>digital comics</h3>
-          </div>
-
-        </div>
+            </div>
       </div>
     </section>
 
     <section class="footer-info">
       <div class="container">
         <nav>
-          <div>
-          <h3>
-            DC COMICS
-          </h3>
-          <ul>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-          </ul>
+			<div>
+				<FooterLinksCol
+				:singleInfo="footerInfo[0]"
+				:title="footerInfo[0].title">
+				</FooterLinksCol>
 
-          <h3>
-            DC COMICS
-          </h3>
-          <ul>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-          </ul>
+				<FooterLinksCol
+				:singleInfo="footerInfo[1]"
+				:title="footerInfo[1].title">
+				</FooterLinksCol>
+			</div>
+			<FooterLinksCol
+			:singleInfo="footerInfo[2]"
+			:title="footerInfo[2].title">
+			</FooterLinksCol>
 
-          </div>
+			<FooterLinksCol
+			:singleInfo="footerInfo[3]"
+			:title="footerInfo[3].title">
+			</FooterLinksCol>
 
-          <div>
-          <h3>
-            DC COMICS
-          </h3>
-          <ul>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-          </ul>
-          </div>
-          <div>
-            <h3>
-            DC COMICS
-          </h3>
-          <ul>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-            <li><a href="">Link</a></li>
-          </ul>
-          </div>
-          
         </nav>
-        <div id="bg-logo">
-          <img src="../assets/img/dc-logo-bg.png" alt="">
-        </div>
+       
       </div>
     </section>
 
@@ -121,15 +163,11 @@ export default {
           <div class="social-links">
             <h3>Follow Us</h3>
           
-            <a href="">Link con Icon</a>
+            <div class="social-icon" v-for="(socialIcon, socialIconIndex) in footerSocialIcons" :key="socialIconIndex">
 
-            <a href="">Link con Icon</a>
+				<img :src="getImgPath(socialIcon.src)" :alt="socialIcon.name">
 
-            <a href="">Link con Icon</a>
-
-            <a href="">Link con Icon</a>
-            
-            <a href="">Link con Icon</a>
+			</div>
 
           </div>
          
@@ -151,10 +189,10 @@ footer{
 
     section{
     
-        &.footer-links{
+        &.footer-items{
             background-color: #2087EE;
 
-            .link-elements{
+            .items-row{
             display: flex;
             flex-wrap: wrap;
             justify-content: space-between;
@@ -167,13 +205,19 @@ footer{
             font-weight: 500;
             font-size: 13px;
             }
-            .single-link-element{
+            .single-item{
             display: flex;
             align-items: center;
+			cursor: pointer;
+			padding: 0 20px;
 
-            img{
-                scale: 50%;
-            }
+			&:hover{
+				background-color: rgba($color: #000000, $alpha: 0.3);
+			}
+              img{
+                  width: 50px;
+				  scale: 70%;
+              }
             }
         }
         &.footer-info{
@@ -184,10 +228,10 @@ footer{
 
             .container{
                 position: relative;
-            }
-
-            h3{
-                color: white;
+				background-image: url('../assets/img/dc-logo-bg.png');
+				background-position: right;
+				background-repeat: no-repeat;
+				padding: 20px 0px;
             }
             nav{
                 display: flex;
@@ -203,6 +247,9 @@ footer{
                 right: 0;
                 transform: translate(0, -20%);
             }
+			.SHOP{
+				align-self: flex-end;
+			}
         }
         &.footer-socials{
             background-color: #303030;
@@ -239,6 +286,10 @@ footer{
                     display: flex;
                     align-items: center;
                 }
+				.social-icon{
+					margin: 0 10px;
+					cursor: pointer;
+				}
             }
         }
     }

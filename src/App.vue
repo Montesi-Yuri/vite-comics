@@ -38,7 +38,7 @@ export default {
 </template>
 
 <style lang="scss" >
-@use './assets/scss/main.scss';
+@use './assets/scss/main.scss' as *;
 
 *{
   font-family: 'Roboto', sans-serif;
